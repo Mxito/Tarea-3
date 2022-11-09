@@ -35,11 +35,11 @@ class Expendedor {
                return true;
             }
         };
-        g.drawImage(Exp,300, 100, 350, 550, observer);
+        g.drawImage(Exp,200, 100, 450, 550, observer);
         for (int i = 1; i < Cantidad+1; i++) {
-            D.get(0).paint(g, 330+30*(i-1), 282);
-            D.get(1).paint(g, 330+30*(i-1), 350);
-            D.get(2).paint(g, 330+30*(i-1), 420);   
+            D.get(0).paint(g, 230+30*(i-1), 282);
+            D.get(1).paint(g, 230+30*(i-1), 350);
+            D.get(2).paint(g, 230+30*(i-1), 420);   
         }
     }
     public Bebida comprarBebida(Moneda m, int numero) throws customException{

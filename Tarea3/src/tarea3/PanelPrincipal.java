@@ -18,7 +18,7 @@ public class PanelPrincipal extends JPanel {
         this.setBackground(Color.white);
         this.setLayout(null);
         
-        exp = new Expendedor(8, 1000);
+        exp = new Expendedor(9, 1000);
         Botones();
         com = new Comprador(m);
         com1= new Comprador(m1);
@@ -36,15 +36,15 @@ public class PanelPrincipal extends JPanel {
     }
         public void Botones(){
         JButton fantaBoton = new JButton("FANTA");
-        fantaBoton.setBounds(595, 360, 80, 20);
+        fantaBoton.setBounds(547, 360, 80, 20);
         this.add(fantaBoton);
         
         JButton cocaBoton = new JButton("COCA-COLA");
-        cocaBoton.setBounds(595, 390, 80, 20);
+        cocaBoton.setBounds(547, 390, 80, 20);
         this.add(cocaBoton);
         
         JButton spriteBoton = new JButton("SPRITE");
-        spriteBoton.setBounds(595, 420, 80, 20);
+        spriteBoton.setBounds(547, 420, 80, 20);
         this.add(spriteBoton);
     }
 }
