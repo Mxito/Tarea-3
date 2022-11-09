@@ -3,6 +3,7 @@ package tarea3;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.ImageObserver;
 import javax.swing.ImageIcon;
 
 abstract class Bebida{
@@ -26,8 +27,13 @@ class CocaCola extends Bebida{
     }
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.red);
-        g.fillRect(100, 260, 10, 20);
+        ImageObserver observer = new ImageObserver() {
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+               return true;
+            }
+        };
+        g.drawImage(coca, 100, 350, 25, 55, observer);
     }
     @Override
     public String tipoBebida(){
@@ -35,13 +41,21 @@ class CocaCola extends Bebida{
     }
 }
 class Sprite extends Bebida{
+    private Image esprait;
     public Sprite(int numSerie){
         super(numSerie);
+        esprait = new ImageIcon("sprite.png").getImage();
     }
     @Override
     public void paint(Graphics g){
-        g.setColor(Color.orange);
-        g.fillRect(100, 230, 10, 20);
+
+        ImageObserver observer = new ImageObserver() {
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+               return true;
+            }
+        };
+        g.drawImage(esprait, 100, 280, 25, 55, observer);
     }
     @Override
     public String tipoBebida(){
@@ -49,13 +63,21 @@ class Sprite extends Bebida{
     }
 }
 class Fanta extends Bebida{
+    private Image phanta;
     public Fanta(int numSerie){
         super(numSerie);
+        phanta = new ImageIcon("fanta.png").getImage();
     }
     @Override
     public void paint(Graphics g){
-        g.setColor(Color.green);
-        g.fillRect(100, 200, 10, 20);
+
+        ImageObserver observer = new ImageObserver() {
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+               return true;
+            }
+        };
+        g.drawImage(phanta, 100, 200, 25, 55, observer);
     }
     @Override
     public String tipoBebida(){
