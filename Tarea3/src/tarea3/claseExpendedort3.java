@@ -1,5 +1,7 @@
 
 package tarea3;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 class Expendedor {
@@ -18,6 +20,13 @@ class Expendedor {
             D.get(1).addBebida(new Sprite(2000+i));
             D.get(2).addBebida(new CocaCola(3000+i));
         }
+    }
+    public void paint(Graphics g){
+        g.setColor(Color.red);
+        g.fillRect(200, 200, 90, 700);
+        D.get(0).paint(g);
+        D.get(1).paint(g);
+        D.get(2).paint(g);
     }
     public Bebida comprarBebida(Moneda m, int numero) throws customException{
         if (m == null){

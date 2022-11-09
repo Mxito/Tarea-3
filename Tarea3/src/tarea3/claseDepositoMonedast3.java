@@ -7,6 +7,9 @@ class DepositoMonedas {
     public DepositoMonedas(){
         M = new ArrayList<>();
     }
+    public void paint(){
+        
+    }
     public void addMoneda(Moneda m){
         M.add(m);
     }

@@ -14,6 +14,9 @@ class Comprador{
         }
         vueltoPendiente = 0;
     }
+    public void paint(){
+        
+    }
     public String beber(){
         Bebida aux = bebida;
         bebida = null;
