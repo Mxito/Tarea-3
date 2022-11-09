@@ -13,7 +13,7 @@ public class PanelPrincipal extends JPanel {
     Moneda1000 m2 = new Moneda1000();
     public PanelPrincipal() throws customException{
         this.setBackground(Color.white);
-        exp = new Expendedor(4, 1000);
+        exp = new Expendedor(8, 1000);
         com = new Comprador(m);
         com1= new Comprador(m1);
         com2= new Comprador(m2);

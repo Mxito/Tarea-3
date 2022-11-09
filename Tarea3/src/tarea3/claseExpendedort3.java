@@ -3,15 +3,21 @@ package tarea3;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
+import javax.swing.ImageIcon;
 
 class Expendedor {
+    private Image Exp;
     private ArrayList<Deposito> D;
-    private ArrayList<Moneda> M;
     private int precio;
     private int vueltoTotal;
+    private int Cantidad;
     public Expendedor(int numBebidas, int precioUnico){
         precio = precioUnico;
+        Cantidad = numBebidas;
         vueltoTotal = 0;
+        Exp = new ImageIcon("Expendedor.png").getImage();
         D = new ArrayList<>(3);
         D.add(new Deposito());
         D.add(new Deposito());
@@ -23,12 +29,18 @@ class Expendedor {
         }
     }
     public void paint(Graphics g){
-        g.setColor(Color.red);
-        g.fillRect(200, 200, 90, 700);
-        D.get(0).paint(g);
-        D.get(1).paint(g);
-        D.get(2).paint(g);
-        
+        ImageObserver observer = new ImageObserver() {
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+               return true;
+            }
+        };
+        g.drawImage(Exp,300, 100, 350, 550, observer);
+        for (int i = 1; i < Cantidad+1; i++) {
+            D.get(0).paint(g, 330+30*(i-1), 282);
+            D.get(1).paint(g, 330+30*(i-1), 350);
+            D.get(2).paint(g, 330+30*(i-1), 420);   
+        }
     }
     public Bebida comprarBebida(Moneda m, int numero) throws customException{
         if (m == null){
