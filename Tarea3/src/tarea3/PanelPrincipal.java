@@ -4,20 +4,28 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class PanelPrincipal extends JPanel {
-    private Comprador com; 
+    private Comprador com;
+    private Comprador com1;
+    private Comprador com2;
     private Expendedor exp;
-    Moneda100 m3 = new Moneda100();
-    public PanelPrincipal(){
+    Moneda100 m = new Moneda100();
+    Moneda500 m1 = new Moneda500();
+    Moneda1000 m2 = new Moneda1000();
+    public PanelPrincipal() throws customException{
         this.setBackground(Color.white);
         exp = new Expendedor(4, 1000);
-        
-        
+        com = new Comprador(m);
+        com1= new Comprador(m1);
+        com2= new Comprador(m2);
     }
     @Override
     public void paint(Graphics g){
         super.paint(g);
         
         exp.paint(g);
+        com.paint(g);
+        com1.paint(g);
+        com2.paint(g);
         
         
     }

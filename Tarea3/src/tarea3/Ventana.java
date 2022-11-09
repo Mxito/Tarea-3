@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 
 public class Ventana extends JFrame{
     public PanelPrincipal panel;
-    public Ventana(){
+    public Ventana() throws customException{
         this.setSize(700, 700);
         setTitle("Titulo");
 

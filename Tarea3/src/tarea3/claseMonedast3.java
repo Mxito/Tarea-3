@@ -19,18 +19,6 @@ abstract class Moneda{
         return "Valor: "+valor+"\nSerie:"+this.toString()+"\n";
     }
 }
-
-class Moneda100 extends Moneda{
-    public Moneda100(){
-        super(100);
-    }
-    @Override
-    public void paint(Graphics g) {
-        g.setColor(Color.red);
-        g.fillOval(50, 260, 10, 20);
-    }
-}
-
 class Moneda500 extends Moneda{
     public Moneda500(){
         super(500);
@@ -38,7 +26,7 @@ class Moneda500 extends Moneda{
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.yellow);
-        g.fillOval(50, 230, 10, 20);
+        g.fillOval(300, 230, 10, 20);
     }
 }
 
@@ -49,7 +37,17 @@ class Moneda1000 extends Moneda{
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.blue);
-        g.fillOval(50, 200, 10, 20);
+        g.fillOval(300, 200, 10, 20);
+    }
+}
+class Moneda100 extends Moneda{
+    public Moneda100(){
+        super(100);
+    }
+    @Override
+    public void paint(Graphics g) {
+        g.setColor(Color.red);
+        g.fillOval(300, 260, 10, 20);
     }
 }
 

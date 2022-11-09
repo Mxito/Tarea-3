@@ -9,8 +9,14 @@ class DepositoMonedas {
         M = new ArrayList<>();
     }
     public void paint(Graphics g){
-        Moneda100 m1 = new Moneda100();
-        m1.paint(g);
+        Moneda m0 = M.get(0);
+        m0.paint(g);
+        
+        Moneda m2 = M.get(0);
+        m2.paint(g);
+        
+        Moneda m3 = M.get(0);
+        m3.paint(g);
     }
     public void addMoneda(Moneda m){
         M.add(m);

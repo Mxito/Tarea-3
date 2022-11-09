@@ -9,18 +9,13 @@ class Comprador{
     private DepositoMonedas Cartera;
     private Bebida bebida;
     private int vueltoPendiente;
-    public Comprador( int cualBebida, Expendedor maquina) throws customException{
-        M = new ArrayList<>();
-        Cartera = new DepositoMonedas();
-        bebida = maquina.comprarBebida(Cartera.removeMoneda(), cualBebida);
-        vueltoPendiente = maquina.valorVuelto(cualBebida);
-        for(int i = vueltoPendiente; i > 0; i-=100){
-            Cartera.addMoneda(maquina.getVuelto());
-        }
-        vueltoPendiente = 0;
+    public Comprador(Moneda coin) throws customException{
+       Cartera = new DepositoMonedas();
+       Cartera.addMoneda(coin);
+       
     }
     public void paint(Graphics g){
-       
+       Cartera.paint(g);
         
     }
     public String beber(){
