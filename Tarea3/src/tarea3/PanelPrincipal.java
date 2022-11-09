@@ -6,9 +6,11 @@ import javax.swing.JPanel;
 public class PanelPrincipal extends JPanel {
     private Comprador com; 
     private Expendedor exp;
+    Moneda100 m3 = new Moneda100();
     public PanelPrincipal(){
         this.setBackground(Color.white);
         exp = new Expendedor(4, 1000);
+        
         
     }
     @Override
@@ -16,6 +18,7 @@ public class PanelPrincipal extends JPanel {
         super.paint(g);
         
         exp.paint(g);
+        
         
     }
 }

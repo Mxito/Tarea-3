@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 class Expendedor {
     private ArrayList<Deposito> D;
+    private ArrayList<Moneda> M;
     private int precio;
     private int vueltoTotal;
     public Expendedor(int numBebidas, int precioUnico){
@@ -27,6 +28,7 @@ class Expendedor {
         D.get(0).paint(g);
         D.get(1).paint(g);
         D.get(2).paint(g);
+        
     }
     public Bebida comprarBebida(Moneda m, int numero) throws customException{
         if (m == null){

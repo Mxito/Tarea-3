@@ -1,5 +1,6 @@
 
 package tarea3;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 class DepositoMonedas {
@@ -7,8 +8,9 @@ class DepositoMonedas {
     public DepositoMonedas(){
         M = new ArrayList<>();
     }
-    public void paint(){
-        
+    public void paint(Graphics g){
+        Moneda100 m1 = new Moneda100();
+        m1.paint(g);
     }
     public void addMoneda(Moneda m){
         M.add(m);
