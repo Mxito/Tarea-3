@@ -8,6 +8,7 @@ public class Ventana extends JFrame{
     public Ventana() throws customException{
         this.setSize(800, 800);
         setTitle("Titulo");
+        this.setResizable(false);
 
         this.add(new PanelPrincipal());
     
