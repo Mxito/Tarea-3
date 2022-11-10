@@ -24,8 +24,8 @@ class Expendedor {
         D.add(new Deposito());
         for(int i = 0; i < numBebidas; i++){
             D.get(0).addBebida(new Fanta(1000+i));
-            D.get(1).addBebida(new Sprite(2000+i));
-            D.get(2).addBebida(new CocaCola(3000+i));
+            D.get(2).addBebida(new Sprite(2000+i));
+            D.get(1).addBebida(new CocaCola(3000+i));
         }
     }
     public void paint(Graphics g){
