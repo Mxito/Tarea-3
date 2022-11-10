@@ -15,7 +15,7 @@ public class PanelPrincipal extends JPanel {
     Moneda500 m1 = new Moneda500();
     Moneda1000 m2 = new Moneda1000();
     public PanelPrincipal() throws customException{
-        this.setBackground(Color.white);
+        this.setBackground(Color.darkGray);
         this.setLayout(null);
         
         exp = new Expendedor(9, 1000);
@@ -35,16 +35,23 @@ public class PanelPrincipal extends JPanel {
         com2.paint(g);   
     }
         public void Botones(){
-        JButton fantaBoton = new JButton("FANTA");
-        fantaBoton.setBounds(547, 360, 80, 20);
+        JButton fantaBoton = new JButton();
+        fantaBoton.setBounds(547, 360, 80, 30);
+        ImageIcon fantaImage = new ImageIcon("fanta-etiqueta.png");
+        fantaBoton.setIcon(new ImageIcon(fantaImage.getImage().getScaledInstance(fantaBoton.getWidth(), fantaBoton.getHeight(), Image.SCALE_SMOOTH)));
         this.add(fantaBoton);
         
-        JButton cocaBoton = new JButton("COCA-COLA");
-        cocaBoton.setBounds(547, 390, 80, 20);
+        JButton cocaBoton = new JButton();
+        cocaBoton.setBounds(547, 395, 80, 30);
+        ImageIcon cocaImage = new ImageIcon("coca-etiqueta.jpg");
+        cocaBoton.setIcon(new ImageIcon(cocaImage.getImage().getScaledInstance(cocaBoton.getWidth(), cocaBoton.getHeight(), Image.SCALE_SMOOTH)));
         this.add(cocaBoton);
         
-        JButton spriteBoton = new JButton("SPRITE");
-        spriteBoton.setBounds(547, 420, 80, 20);
+        JButton spriteBoton = new JButton();
+        spriteBoton.setBounds(547, 430, 80, 30);
+        ImageIcon spriteImage = new ImageIcon("sprite-etiqueta.png");
+        spriteBoton.setIcon(new ImageIcon(spriteImage.getImage().getScaledInstance(spriteBoton.getWidth(), spriteBoton.getHeight(), Image.SCALE_SMOOTH)));
         this.add(spriteBoton);
     }
+        
 }
