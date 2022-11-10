@@ -52,6 +52,14 @@ public class PanelPrincipal extends JPanel {
         ImageIcon spriteImage = new ImageIcon("sprite-etiqueta.png");
         spriteBoton.setIcon(new ImageIcon(spriteImage.getImage().getScaledInstance(spriteBoton.getWidth(), spriteBoton.getHeight(), Image.SCALE_SMOOTH)));
         this.add(spriteBoton);
+        
+        JButton boton;
+        boton = new JButton();
+        boton.setBounds(556, 285, 64, 58);
+        this.add(boton);
+        boton.setOpaque(false);
+        boton.setContentAreaFilled(false);
+        boton.setBorderPainted(false);
     }
         
 }
