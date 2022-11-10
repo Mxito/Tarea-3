@@ -26,13 +26,7 @@ class CocaCola extends Bebida{
     }
     @Override
     public void paint(Graphics g, int x, int y) {
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(coca, x, y, 25, 55, observer);
+        g.drawImage(coca, x, y, 25, 55, null);
     }
     @Override
     public String tipoBebida(){
@@ -48,13 +42,7 @@ class Sprite extends Bebida{
     }
     @Override
     public void paint(Graphics g, int x, int y) {
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(esprait, x, y, 25, 55, observer);
+        g.drawImage(esprait, x, y, 25, 55, null);
     }
     @Override
     public String tipoBebida(){
@@ -69,13 +57,7 @@ class Fanta extends Bebida{
     }
     @Override
      public void paint(Graphics g, int x, int y) {
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(phanta, x, y, 25, 55, observer);
+        g.drawImage(phanta, x, y, 25, 55, null);
     }
     @Override
     public String tipoBebida(){

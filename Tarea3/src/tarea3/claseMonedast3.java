@@ -28,13 +28,7 @@ class Moneda500 extends Moneda{
     }
     @Override
     public void paint(Graphics g) {
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(m500, 300, 140, 50, 50, observer);
+        g.drawImage(m500, 50, 140, 50, 50, null);
     }
 }
 
@@ -46,13 +40,7 @@ class Moneda1000 extends Moneda{
     }
     @Override
     public void paint(Graphics g) {
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(m1000, 300, 200, 50, 50, observer);
+        g.drawImage(m1000, 50, 200, 50, 50, null);
     }
 }
 class Moneda100 extends Moneda{
@@ -63,13 +51,7 @@ class Moneda100 extends Moneda{
     }
     @Override
     public void paint(Graphics g) {
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(m100, 300, 260, 50, 50, observer);
+        g.drawImage(m100, 50, 260, 50, 50, null);
     }
 }
 

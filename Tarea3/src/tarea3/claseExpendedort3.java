@@ -1,6 +1,7 @@
 
 package tarea3;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.awt.Image;
@@ -11,10 +12,12 @@ class Expendedor {
     private Image Exp;
     private ArrayList<Deposito> D;
     private int precio;
+    private String price;
     private int vueltoTotal;
     private int Cantidad;
     public Expendedor(int numBebidas, int precioUnico){
         precio = precioUnico;
+        price = String.valueOf(precio);
         Cantidad = numBebidas;
         vueltoTotal = 0;
         Exp = new ImageIcon("Expendedor.png").getImage();
@@ -29,13 +32,12 @@ class Expendedor {
         }
     }
     public void paint(Graphics g){
-        ImageObserver observer = new ImageObserver() {
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-               return true;
-            }
-        };
-        g.drawImage(Exp,200, 100, 450, 550, observer);
+        g.drawImage(Exp,200, 100, 450, 550, null);
+        g.fillRoundRect(547, 483, 80, 20, 20, 20);
+        Font font = new Font("Space Invaders",Font.BOLD,12);
+        g.setFont(font);
+        g.setColor(Color.white);
+        g.drawString("$"+price, 555, 497);
         for (int i = 1; i < Cantidad+1; i++) {
             D.get(0).paint(g, 240+30*(i-1), 282, i-1);
             D.get(1).paint(g, 240+30*(i-1), 350,i-1);
