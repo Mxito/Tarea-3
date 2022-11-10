@@ -37,9 +37,9 @@ class Expendedor {
         };
         g.drawImage(Exp,200, 100, 450, 550, observer);
         for (int i = 1; i < Cantidad+1; i++) {
-            D.get(0).paint(g, 230+30*(i-1), 282);
-            D.get(1).paint(g, 230+30*(i-1), 350);
-            D.get(2).paint(g, 230+30*(i-1), 420);   
+            D.get(0).paint(g, 240+30*(i-1), 282, i-1);
+            D.get(1).paint(g, 240+30*(i-1), 350,i-1);
+            D.get(2).paint(g, 240+30*(i-1), 420,i-1);   
         }
     }
     public Bebida comprarBebida(Moneda m, int numero) throws customException{

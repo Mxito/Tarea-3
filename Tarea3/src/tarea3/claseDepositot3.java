@@ -11,10 +11,8 @@ class Deposito{
       D = new ArrayList<>();
       vueltoDeposito = 0;
     }
-    public void paint(Graphics g, int x, int y){
-        for(int i = 0; i< D.size(); i++){
-            D.get(i).paint(g, x, y);
-        }  
+    public void paint(Graphics g, int x, int y, int n){
+        D.get(n).paint(g, x, y); 
     }
     public void addBebida(Bebida a){
         D.add(a);
