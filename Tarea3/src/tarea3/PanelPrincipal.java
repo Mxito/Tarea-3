@@ -50,6 +50,26 @@ public class PanelPrincipal extends JPanel {
         boton.setOpaque(false);
         boton.setContentAreaFilled(false);
         boton.setBorderPainted(false);
+        
+        JButton m500 = new JButton();
+        m500.setBounds(50, 200, 50, 50);
+        ImageIcon m500i = new ImageIcon("moneda500.png");
+        m500.setIcon(new ImageIcon(m500i.getImage().getScaledInstance(m500.getWidth(), m500.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(m500);
+        
+        JButton m100 = new JButton();
+        m100.setBounds(50, 140, 50, 50);
+        ImageIcon m100i = new ImageIcon("moneda100.png");
+        m100.setIcon(new ImageIcon(m100i.getImage().getScaledInstance(m100.getWidth(), m100.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(m100);
+        
+        JButton m1000 = new JButton();
+        m1000.setBounds(50, 260, 50, 50);
+        ImageIcon m1000i = new ImageIcon("moneda1000.png");
+        m1000.setIcon(new ImageIcon(m1000i.getImage().getScaledInstance(m1000.getWidth(), m1000.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(m1000);
+        
+        
     }
     @Override
     public void paint(Graphics g){
