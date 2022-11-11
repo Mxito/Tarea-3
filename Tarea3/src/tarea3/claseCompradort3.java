@@ -13,8 +13,8 @@ class Comprador{
     private String saldoString;
     public Comprador() throws customException{
        Cartera = new DepositoMonedas();
-
-       saldo = 666;
+       saldoString = "";
+       saldo = 0;
        
     }
     public String beber(){
@@ -28,27 +28,27 @@ class Comprador{
             System.out.println("100");
         }
     }
+    
     public void saldo(){
+        saldo = 0;
         for(int i=0; i< Cartera.getDMonedas().size(); i++){
             saldo += Cartera.getMoneda(i).getValor();
         }
-        saldoString = String.valueOf(saldo);
+        saldoString = saldo+"";
+        
     }
+    
     public void agregarSaldo(Moneda m){
         Cartera.addMoneda(m);
     }
+    
     public void paint(Graphics g){
        this.saldo();
        g.setColor(Color.black);
        g.fillRoundRect(60, 100, 130, 20, 30, 30);
-       
-       
        g.setColor(Color.white);
        Font font = new Font("Space Invaders",Font.BOLD,12);
        g.setFont(font);
-       g.drawString("Saldo : $"+ saldoString, 66, 114);
-        
+       g.drawString("Saldo : $"+ saldoString, 66, 114);   
     }
-
-    
 }
