@@ -2,55 +2,39 @@ package tarea3;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelPrincipal extends JPanel {
-    private Comprador com;
-    private Comprador com1;
-    private Comprador com2;
     private Expendedor exp;
-    Moneda100 m = new Moneda100();
-    Moneda500 m1 = new Moneda500();
-    Moneda1000 m2 = new Moneda1000();
+    private Comprador com;;
+    private JButton m100;
     public PanelPrincipal() throws customException{
         this.setBackground(Color.darkGray);
         this.setLayout(null);
         
         exp = new Expendedor(9, 1500);
-        com = new Comprador(m);
-        com1= new Comprador(m1);
-        com2= new Comprador(m2);
+        com = new Comprador();
         Botones();
     }
       public void Botones(){
-        JButton fantaBoton = new JButton();
-        fantaBoton.setBounds(547, 360, 80, 30);
-        ImageIcon fantaImage = new ImageIcon("fanta-etiqueta.png");
-        fantaBoton.setIcon(new ImageIcon(fantaImage.getImage().getScaledInstance(fantaBoton.getWidth(), fantaBoton.getHeight(), Image.SCALE_SMOOTH)));
-        this.add(fantaBoton);
-        
-        JButton cocaBoton = new JButton();
-        cocaBoton.setBounds(547, 395, 80, 30);
-        ImageIcon cocaImage = new ImageIcon("coca-etiqueta.jpg");
-        cocaBoton.setIcon(new ImageIcon(cocaImage.getImage().getScaledInstance(cocaBoton.getWidth(), cocaBoton.getHeight(), Image.SCALE_SMOOTH)));
-        this.add(cocaBoton);
-        
-        JButton spriteBoton = new JButton();
-        spriteBoton.setBounds(547, 430, 80, 30);
-        ImageIcon spriteImage = new ImageIcon("sprite-etiqueta.png");
-        spriteBoton.setIcon(new ImageIcon(spriteImage.getImage().getScaledInstance(spriteBoton.getWidth(), spriteBoton.getHeight(), Image.SCALE_SMOOTH)));
-        this.add(spriteBoton);
-        
-        JButton boton;
-        boton = new JButton();
-        boton.setBounds(556, 285, 64, 58);
-        this.add(boton);
-        boton.setOpaque(false);
-        boton.setContentAreaFilled(false);
-        boton.setBorderPainted(false);
-        
+        ArrayList<JButton> Buttons = new ArrayList<>(3);
+        Buttons.add(new JButton());
+        Buttons.add(new JButton());
+        Buttons.add(new JButton());
+            
+        for (int i = 0; i < Buttons.size(); i++) {
+            Buttons.get(0).setBounds(50, 400+i, 50, 50);
+            Buttons.get(1).setBounds(50, 460+i, 50, 50);
+            Buttons.get(2).setBounds(50, 520+i, 50, 50);
+            this.add(Buttons.get(0));
+            this.add(Buttons.get(1));
+            this.add(Buttons.get(2));    
+        }
         JButton m500 = new JButton();
         m500.setBounds(50, 200, 50, 50);
         ImageIcon m500i = new ImageIcon("moneda500.png");
@@ -70,15 +54,72 @@ public class PanelPrincipal extends JPanel {
         this.add(m1000);
         
         
+        JButton fantaBoton = new JButton();
+        fantaBoton.setBounds(547, 360, 80, 30);
+        ImageIcon fantaImage = new ImageIcon("fanta-etiqueta.png");
+        fantaBoton.setIcon(new ImageIcon(fantaImage.getImage().getScaledInstance(fantaBoton.getWidth(), fantaBoton.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(fantaBoton);
+          
+        JButton cocaBoton = new JButton();
+        cocaBoton.setBounds(547, 395, 80, 30);
+        ImageIcon cocaImage = new ImageIcon("coca-etiqueta.jpg");
+        cocaBoton.setIcon(new ImageIcon(cocaImage.getImage().getScaledInstance(cocaBoton.getWidth(), cocaBoton.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(cocaBoton);
+        
+        JButton spriteBoton = new JButton();
+        spriteBoton.setBounds(547, 430, 80, 30);
+        ImageIcon spriteImage = new ImageIcon("sprite-etiqueta.png");
+        spriteBoton.setIcon(new ImageIcon(spriteImage.getImage().getScaledInstance(spriteBoton.getWidth(), spriteBoton.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(spriteBoton);
+        
+        JButton receptorMonedas;
+        receptorMonedas = new JButton();
+        receptorMonedas.setBounds(556, 285, 64, 58);
+        this.add(receptorMonedas);
+        receptorMonedas.setOpaque(false);
+        receptorMonedas.setContentAreaFilled(false);
+        receptorMonedas.setBorderPainted(false);
     }
+      
+    public void clickSaldo(){
+        MouseListener oyenteMouse = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                com.agregarSaldo(new Moneda100());
+                com.saldo();
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        };
+        m100.addMouseListener(oyenteMouse);
+    }
+    
+    
     @Override
     public void paint(Graphics g){
         super.paint(g);
         
         exp.paint(g);
         com.paint(g);
-        com1.paint(g);
-        com2.paint(g);   
     }
       
         

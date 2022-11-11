@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 class Expendedor {
     private Image Exp;
-    private ArrayList<Deposito> D;
+    ArrayList<Deposito> D;
     private int precio;
     private String price;
     private int vueltoTotal;

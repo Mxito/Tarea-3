@@ -1,22 +1,21 @@
 package tarea3;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 class Comprador{
-    private ArrayList<Moneda> M;
     private DepositoMonedas Cartera;
     private Bebida bebida;
     private int vueltoPendiente;
-    public Comprador(Moneda coin) throws customException{
+    private int saldo;
+    private String saldoString;
+    public Comprador() throws customException{
        Cartera = new DepositoMonedas();
-       Cartera.addMoneda(coin);
+
+       saldo = 666;
        
-    }
-    public void paint(Graphics g){
-       Cartera.paint(g);
-        
     }
     public String beber(){
         Bebida aux = bebida;
@@ -28,6 +27,27 @@ class Comprador{
         for (int i = cont; i > 0; i--){
             System.out.println("100");
         }
+    }
+    public void saldo(){
+        for(int i=0; i< Cartera.getDMonedas().size(); i++){
+            saldo += Cartera.getMoneda(i).getValor();
+        }
+        saldoString = String.valueOf(saldo);
+    }
+    public void agregarSaldo(Moneda m){
+        Cartera.addMoneda(m);
+    }
+    public void paint(Graphics g){
+       this.saldo();
+       g.setColor(Color.black);
+       g.fillRoundRect(60, 100, 130, 20, 30, 30);
+       
+       
+       g.setColor(Color.white);
+       Font font = new Font("Space Invaders",Font.BOLD,12);
+       g.setFont(font);
+       g.drawString("Saldo : $"+ saldoString, 66, 114);
+        
     }
 
     

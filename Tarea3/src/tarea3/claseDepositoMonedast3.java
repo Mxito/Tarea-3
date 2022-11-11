@@ -8,10 +8,6 @@ class DepositoMonedas {
     public DepositoMonedas(){
         M = new ArrayList<>();
     }
-    public void paint(Graphics g){
-        Moneda m0 = M.get(0);
-        m0.paint(g);
-    }
     public void addMoneda(Moneda m){
         M.add(m);
     }
@@ -20,5 +16,8 @@ class DepositoMonedas {
     }
     public ArrayList getDMonedas(){
         return M;
+    }
+    public Moneda getMoneda(int n){
+        return M.get(n);
     }
 }
