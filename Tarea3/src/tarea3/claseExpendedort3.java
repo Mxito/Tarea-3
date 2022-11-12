@@ -92,7 +92,7 @@ class Expendedor {
             return soda = DBebidas.get(1).getBebidas();
         }
         if(numero == 3){
-            if(DBebidas.get(3).getArrayBebidas().isEmpty()){
+            if(DBebidas.get(2).getArrayBebidas().isEmpty()){
                 return null;
             }
             dineroExpendedor = 0;
@@ -117,7 +117,10 @@ class Expendedor {
         Bebida refresco = soda;
         soda = null;
         return refresco;
-    } 
+    }
+    public Moneda retornarVuelto(){
+        return DVuelto.remove(0);
+    }
     public void paint(Graphics g){
         g.drawImage(Exp,200, 100, 450, 550, null);
         g.fillRoundRect(547, 483, 80, 20, 20, 20);
@@ -138,7 +141,7 @@ class Expendedor {
             DMonedas.paint(g, 500+20*(i-1), 520, i-1);
         }
         for(int i  = 0; i < DVuelto.size(); i++){
-            DVuelto.get(i).paint(g, 30, 30);
+            DVuelto.get(i).paint(g, 260, 500);
         }
         if(soda != null){
             soda.paint(g, 230, 500);

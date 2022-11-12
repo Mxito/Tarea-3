@@ -23,6 +23,7 @@ public class PanelPrincipal extends JPanel {
     private JButton spriteBoton;
     private JButton cocaBoton;
     private JButton sacarBebida;
+    public JButton sacarVuelto;
     public PanelPrincipal() throws customException{
         this.setBackground(Color.darkGray);
         this.setLayout(null);
@@ -82,6 +83,13 @@ public class PanelPrincipal extends JPanel {
         sacarBebida.setOpaque(false);
         sacarBebida.setContentAreaFilled(false);
         sacarBebida.setBorderPainted(false);
+        
+        sacarVuelto = new JButton();
+        sacarVuelto.setBounds(260, 500, 50, 50);
+        this.add(sacarVuelto);
+        sacarVuelto.setOpaque(false);
+        sacarVuelto.setContentAreaFilled(false);
+        sacarVuelto.setBorderPainted(false);
     
     }
       
@@ -160,9 +168,16 @@ public class PanelPrincipal extends JPanel {
                 repaint();
             }
        };sacarBebida.addMouseListener(ma4);
-    }
-   
-   
+       
+       MouseAdapter ma5 = new MouseAdapter() {
+          @Override
+           public void mouseClicked(MouseEvent e){
+                exp.retornarVuelto();
+                com.agregarSaldo(new Moneda100());
+                repaint();
+            }
+       };sacarVuelto.addMouseListener(ma5);   
+   }  
     @Override
     public void paint(Graphics g){
         super.paint(g);
