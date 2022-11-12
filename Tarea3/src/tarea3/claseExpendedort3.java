@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 class Expendedor {
     private Image Exp;
@@ -124,8 +125,25 @@ class Expendedor {
         }
         return null;
     }
+    public void depositoVacio(){
+        if(DBebidas.get(0).getArrayBebidas().isEmpty()){
+        for (int i = 0; i < Cantidad; i++) {
+           DBebidas.get(0).addBebida(new CocaCola(1000+i)); 
+            }
+        }
+        if(DBebidas.get(1).getArrayBebidas().isEmpty()){
+        for (int i = 0; i < Cantidad; i++) {
+           DBebidas.get(1).addBebida(new Fanta(2000+i)); 
+            }
+        }
+        if(DBebidas.get(2).getArrayBebidas().isEmpty()){
+        for (int i = 0; i < Cantidad; i++) {
+           DBebidas.get(2).addBebida(new Sprite(3000+i)); 
+            }
+        }
+    }
     public void paint(Graphics g){
-        g.drawImage(Exp,200, 100, 450, 550, null);
+        g.drawImage(Exp,200, 100, 450, 550, null);        
         g.fillRoundRect(547, 283+50, 80, 20, 20, 20);
         Font font = new Font("Space Invaders",Font.BOLD,12);
         g.setFont(font);

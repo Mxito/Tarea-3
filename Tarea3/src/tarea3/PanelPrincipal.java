@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelPrincipal extends JPanel {
@@ -23,11 +24,12 @@ public class PanelPrincipal extends JPanel {
     private JButton spriteBoton;
     private JButton cocaBoton;
     private JButton sacarBebida;
-    public JButton sacarVuelto;
+    private JButton sacarVuelto;
+    private JLabel rellenarBebidas;
     public PanelPrincipal() throws customException{
         this.setBackground(Color.darkGray);
         this.setLayout(null);
-        exp = new Expendedor(10, 1500);
+        exp = new Expendedor(3, 100);
         Botones();
         com = new Comprador(exp);
         clickSaldo();
@@ -87,9 +89,13 @@ public class PanelPrincipal extends JPanel {
         sacarVuelto = new JButton();
         sacarVuelto.setBounds(280, 490, 50, 50);
         this.add(sacarVuelto);
-        sacarVuelto.setOpaque(true);
-        sacarVuelto.setContentAreaFilled(true);
-        sacarVuelto.setBorderPainted(true);
+        sacarVuelto.setOpaque(false);
+        sacarVuelto.setContentAreaFilled(false);
+        sacarVuelto.setBorderPainted(false);
+        
+        rellenarBebidas = new JLabel();
+        rellenarBebidas.setBounds(200, 100, 450, 550);
+        this.add(rellenarBebidas);
     
     }
       
@@ -176,6 +182,14 @@ public class PanelPrincipal extends JPanel {
                 repaint();
             }
        };sacarVuelto.addMouseListener(ma5);   
+       MouseAdapter ma6 = new MouseAdapter() {
+          @Override
+           public void mouseClicked(MouseEvent e){
+               exp.depositoVacio();
+               System.out.println("click");
+               repaint();
+            }
+       };rellenarBebidas.addMouseListener(ma6);
    }  
     @Override
     public void paint(Graphics g){
