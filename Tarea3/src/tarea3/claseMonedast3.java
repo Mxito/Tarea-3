@@ -47,12 +47,17 @@ class Moneda1000 extends Moneda{
 }
 class Moneda100 extends Moneda{
     private Image coin;
+    private Image coin2;
     public Moneda100(){
         super(100);
         coin = new ImageIcon("moneda1002.png").getImage();
+        coin2 = new ImageIcon("moneda100_1.png").getImage();
+    }
+    public void paint2(Graphics g, int x , int y) {
+        g.drawImage(coin2, x, y, 30, 30, null);
     }
     @Override
-    public void paint(Graphics g, int x , int y) {
+    public void paint(Graphics g, int x , int y){
         g.drawImage(coin, x, y, 8, 21, null);
     }
 }

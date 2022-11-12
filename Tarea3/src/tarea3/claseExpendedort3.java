@@ -169,7 +169,7 @@ class Expendedor {
             }
         }
         for(int i  = 0; i < DVuelto.size(); i++){
-            DVuelto.get(i).paint(g, 260, 500);
+            DVuelto.get(i).paint2(g, 280, 500);
         }
         if(soda != null){
             soda.paint(g, 230, 500);
