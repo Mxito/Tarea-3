@@ -28,8 +28,7 @@ class Comprador{
         for (int i = cont; i > 0; i--){
             System.out.println("100");
         }
-    }
-    
+    } 
     public void saldo(){
         saldo = 0;
         for(int i=0; i< Cartera.getDMonedas().size(); i++){
@@ -43,12 +42,10 @@ class Comprador{
             Cartera.removeMoneda();
         }
         saldo = 0;
-    }
-    
+    } 
     public void agregarSaldo(Moneda m){
         Cartera.addMoneda(m);
     }
-
     public void paint(Graphics g){
        this.saldo();
        g.setColor(Color.black);

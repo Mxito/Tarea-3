@@ -5,13 +5,13 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.awt.Image;
-import java.awt.image.ImageObserver;
 import javax.swing.ImageIcon;
 
 class Expendedor {
     private Image Exp;
     private ArrayList<Deposito> DBebidas;
     private DepositoMonedas DMonedas;
+    private ArrayList<Moneda100> DVuelto;
     private int precio;
     private String price;
     private int vueltoTotal;
@@ -23,6 +23,7 @@ class Expendedor {
         Cantidad = numBebidas;
         vueltoTotal = 0;
         Exp = new ImageIcon("Expendedor.png").getImage();
+        DVuelto = new ArrayList<>();
         DMonedas = new DepositoMonedas();
         DBebidas = new ArrayList<>(3);
         DBebidas.add(new Deposito());
@@ -41,6 +42,9 @@ class Expendedor {
     }
     public Bebida comprarBebida(int numero) throws customException{
         int dineroExpendedor = 0;
+        if(DMonedas.getDMonedas().isEmpty()){
+            return null;
+        }
         while (dineroExpendedor <= precio) {
             for(int i=0; i< DMonedas.getDMonedas().size(); i++){
             dineroExpendedor += DMonedas.getMoneda(i).getValor();
@@ -50,46 +54,64 @@ class Expendedor {
             throw new customException("PagoIncorrectoException");
         }
         if(numero == 1){
+            if(DBebidas.get(0).getArrayBebidas().isEmpty()){
+                return null;
+            }
             dineroExpendedor = 0;
             while(dineroExpendedor < precio) {
                 dineroExpendedor += DMonedas.removeMoneda().getValor();
+            }
+            vueltoTotal = dineroExpendedor;
+            while(DMonedas.getDMonedas().isEmpty() == false){
+                vueltoTotal += DMonedas.removeMoneda().getValor();    
+            }
+            vueltoTotal -= precio;
+            while(vueltoTotal != 0){
+                DVuelto.add(new Moneda100());
+                vueltoTotal -= 100;
             }
             return soda = DBebidas.get(0).getBebidas();
         }
         if(numero == 2){
+            if(DBebidas.get(1).getArrayBebidas().isEmpty()){
+                return null;
+            }
             dineroExpendedor = 0;
             while(dineroExpendedor < precio) {
                 dineroExpendedor += DMonedas.removeMoneda().getValor();
+            }
+            vueltoTotal = dineroExpendedor;
+            while(DMonedas.getDMonedas().isEmpty() == false){
+                vueltoTotal += DMonedas.removeMoneda().getValor();    
+            }
+            vueltoTotal -= precio;
+            while(vueltoTotal != 0){
+                DVuelto.add(new Moneda100());
+                vueltoTotal -= 100;
             }
             return soda = DBebidas.get(1).getBebidas();
         }
         if(numero == 3){
+            if(DBebidas.get(3).getArrayBebidas().isEmpty()){
+                return null;
+            }
             dineroExpendedor = 0;
+          
             while(dineroExpendedor < precio) {
                 dineroExpendedor += DMonedas.removeMoneda().getValor();
+            }
+            vueltoTotal = dineroExpendedor;
+            while(DMonedas.getDMonedas().isEmpty() == false){
+                vueltoTotal += DMonedas.removeMoneda().getValor();    
+            }
+            vueltoTotal -= precio;
+            while(vueltoTotal != 0){
+                DVuelto.add(new Moneda100());
+                vueltoTotal -= 100;
             }
             return soda = DBebidas.get(2).getBebidas();
         }
         throw new customException("NoHayBebidaException");
-    }
-    public int valorVuelto(int n){
-        if(n == 1){
-            vueltoTotal = DBebidas.get(0).darVuelto();
-        }
-        if(n == 2){
-            vueltoTotal = DBebidas.get(1).darVuelto();
-        }
-        if(n == 3){
-            vueltoTotal = DBebidas.get(2).darVuelto();
-        }
-        return vueltoTotal;
-    }
-    public Moneda getVuelto(){
-        if(vueltoTotal > 0){
-            vueltoTotal -= 100;
-            return new Moneda100();
-        }
-        return null;
     }
     public Bebida getaBebida(){
         Bebida refresco = soda;
@@ -114,6 +136,9 @@ class Expendedor {
         }
         for(int i = 1; i < DMonedas.getDMonedas().size()+1; i++){
             DMonedas.paint(g, 500+20*(i-1), 520, i-1);
+        }
+        for(int i  = 0; i < DVuelto.size(); i++){
+            DVuelto.get(i).paint(g, 30, 30);
         }
         if(soda != null){
             soda.paint(g, 230, 500);

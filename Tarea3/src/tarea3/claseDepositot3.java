@@ -6,10 +6,8 @@ import java.awt.image.ImageObserver;
 
 class Deposito{
     private ArrayList<Bebida> D;
-    private int vueltoDeposito;
     public Deposito(){
       D = new ArrayList<>();
-      vueltoDeposito = 0;
     }
     public void paint(Graphics g, int x, int y, int n){
         if(D.get(n)!= null){
@@ -20,10 +18,7 @@ class Deposito{
         D.add(a);
     }  
     public Bebida getBebidas() throws customException{
-            return D.remove(0);
-    }
-    public int darVuelto(){
-        return vueltoDeposito;
+        return D.remove(0);
     }
     public ArrayList getArrayBebidas(){
         return D;
