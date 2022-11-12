@@ -22,35 +22,38 @@ abstract class Moneda{
     }
 }
 class Moneda500 extends Moneda{
+    private Image coin;
     public Moneda500(){
         super(500);
+        coin = new ImageIcon("moneda5002.png").getImage();
     }
     
     @Override
     public void paint(Graphics g, int x , int y) {
-        g.setColor(Color.yellow);
-        g.fillRoundRect(x, y, 20, 5, 10, 10);
+        g.drawImage(coin, x, y, 8, 21, null);
     }
 }
 
 class Moneda1000 extends Moneda{
+    private Image coin;
     public Moneda1000(){
         super(1000);
+        coin = new ImageIcon("moneda10002.png").getImage();
     }
     @Override
     public void paint(Graphics g, int x , int y) {
-        g.setColor(Color.green);
-        g.fillRoundRect(x, y, 20, 5, 10, 10);
+        g.drawImage(coin, x, y, 8, 21, null);
     }
 }
 class Moneda100 extends Moneda{
+    private Image coin;
     public Moneda100(){
         super(100);
+        coin = new ImageIcon("moneda1002.png").getImage();
     }
     @Override
     public void paint(Graphics g, int x , int y) {
-        g.setColor(Color.lightGray);
-        g.fillRoundRect(x, y, 20, 5, 10, 10);
+        g.drawImage(coin, x, y, 8, 21, null);
     }
 }
 

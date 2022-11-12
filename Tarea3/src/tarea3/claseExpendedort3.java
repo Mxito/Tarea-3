@@ -119,26 +119,54 @@ class Expendedor {
         return refresco;
     }
     public Moneda retornarVuelto(){
-        return DVuelto.remove(0);
+        if(DVuelto.isEmpty()== false){
+            return DVuelto.remove(0);
+        }
+        return null;
     }
     public void paint(Graphics g){
         g.drawImage(Exp,200, 100, 450, 550, null);
-        g.fillRoundRect(547, 483, 80, 20, 20, 20);
+        g.fillRoundRect(547, 283+50, 80, 20, 20, 20);
         Font font = new Font("Space Invaders",Font.BOLD,12);
         g.setFont(font);
         g.setColor(Color.white);
-        g.drawString("$"+price, 555, 497);
+        g.drawString("$"+price, 555, 297+50);
         for (int i = 1; i < DBebidas.get(0).getArrayBebidas().size()+1; i++) {
-            DBebidas.get(0).paint(g, 240+30*(i-1), 282, i-1);   
+            if(i < 10){
+                DBebidas.get(0).paint(g, 240+30*(i-1), 282, i-1);   
+            }
         }
         for (int i = 1; i < DBebidas.get(1).getArrayBebidas().size()+1; i++) {
-            DBebidas.get(1).paint(g, 240+30*(i-1), 350,i-1); 
+            if(i < 10){
+                DBebidas.get(1).paint(g, 240+30*(i-1), 351,i-1);
+            }
         }
         for (int i = 1; i < DBebidas.get(2).getArrayBebidas().size()+1; i++) {
-            DBebidas.get(2).paint(g, 240+30*(i-1), 420,i-1);   
+            if(i < 10){
+                DBebidas.get(2).paint(g, 240+30*(i-1), 420,i-1);   
+            }
         }
+        g.setColor(Color.BLACK);
+        g.fillRect(479, 273, 40, 25); 
+        g.fillRect(479, 273+68, 40, 25); 
+        g.fillRect(479, 273+68+68, 40, 25); 
+        g.setColor(Color.WHITE);
+        g.drawRect(469, 273, 50, 25); 
+        g.drawRect(469, 273+68, 50, 25); 
+        g.drawRect(469, 273+68+68, 50, 25); 
+        g.drawString(DBebidas.get(0).getArrayBebidas().size()+"", 487, 290);
+        g.drawString(DBebidas.get(2).getArrayBebidas().size()+"", 487, 290+68+68);
+        g.drawString(DBebidas.get(1).getArrayBebidas().size()+"", 487, 290+68);
         for(int i = 1; i < DMonedas.getDMonedas().size()+1; i++){
-            DMonedas.paint(g, 500+20*(i-1), 520, i-1);
+            if(i <=11){
+                DMonedas.paint(g, 543+8*(i-1), 500, i-1);
+            }
+            if(i>11 && i<=22){
+                DMonedas.paint(g, 543+8*(i-12), 525, i-1);
+            }
+            if(i>22 && i <=33){
+                DMonedas.paint(g, 543+8*(i-23), 550, i-1);
+            }
         }
         for(int i  = 0; i < DVuelto.size(); i++){
             DVuelto.get(i).paint(g, 260, 500);

@@ -44,7 +44,9 @@ class Comprador{
         saldo = 0;
     } 
     public void agregarSaldo(Moneda m){
-        Cartera.addMoneda(m);
+        if(m != null){
+            Cartera.addMoneda(m);
+        }
     }
     public void paint(Graphics g){
        this.saldo();

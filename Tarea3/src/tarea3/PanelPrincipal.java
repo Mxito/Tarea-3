@@ -27,7 +27,7 @@ public class PanelPrincipal extends JPanel {
     public PanelPrincipal() throws customException{
         this.setBackground(Color.darkGray);
         this.setLayout(null);
-        exp = new Expendedor(9, 1500);
+        exp = new Expendedor(10, 1500);
         Botones();
         com = new Comprador(exp);
         clickSaldo();
@@ -71,7 +71,7 @@ public class PanelPrincipal extends JPanel {
         this.add(spriteBoton);
         
         receptorMonedas = new JButton();
-        receptorMonedas.setBounds(556, 285, 64, 58);
+        receptorMonedas.setBounds(560, 280, 54, 48);
         this.add(receptorMonedas);
         receptorMonedas.setOpaque(false);
         receptorMonedas.setContentAreaFilled(false);
@@ -85,11 +85,11 @@ public class PanelPrincipal extends JPanel {
         sacarBebida.setBorderPainted(false);
         
         sacarVuelto = new JButton();
-        sacarVuelto.setBounds(260, 500, 50, 50);
+        sacarVuelto.setBounds(280, 490, 50, 50);
         this.add(sacarVuelto);
-        sacarVuelto.setOpaque(false);
-        sacarVuelto.setContentAreaFilled(false);
-        sacarVuelto.setBorderPainted(false);
+        sacarVuelto.setOpaque(true);
+        sacarVuelto.setContentAreaFilled(true);
+        sacarVuelto.setBorderPainted(true);
     
     }
       
@@ -172,8 +172,7 @@ public class PanelPrincipal extends JPanel {
        MouseAdapter ma5 = new MouseAdapter() {
           @Override
            public void mouseClicked(MouseEvent e){
-                exp.retornarVuelto();
-                com.agregarSaldo(new Moneda100());
+                com.agregarSaldo(exp.retornarVuelto());
                 repaint();
             }
        };sacarVuelto.addMouseListener(ma5);   
