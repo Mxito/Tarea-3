@@ -10,7 +10,7 @@ import javax.swing.JButton;
 
 abstract class Moneda{
     private final int valor;
-    public abstract void paint(Graphics g);
+    public abstract void paint(Graphics g,int x, int y);
     public Moneda(int n){
         valor = n;
     }
@@ -25,9 +25,11 @@ class Moneda500 extends Moneda{
     public Moneda500(){
         super(500);
     }
+    
     @Override
-    public void paint(Graphics g) {
-        
+    public void paint(Graphics g, int x , int y) {
+        g.setColor(Color.yellow);
+        g.fillRoundRect(x, y, 20, 5, 10, 10);
     }
 }
 
@@ -36,8 +38,9 @@ class Moneda1000 extends Moneda{
         super(1000);
     }
     @Override
-    public void paint(Graphics g) {
-        
+    public void paint(Graphics g, int x , int y) {
+        g.setColor(Color.green);
+        g.fillRoundRect(x, y, 20, 5, 10, 10);
     }
 }
 class Moneda100 extends Moneda{
@@ -45,8 +48,9 @@ class Moneda100 extends Moneda{
         super(100);
     }
     @Override
-    public void paint(Graphics g) {
-        
+    public void paint(Graphics g, int x , int y) {
+        g.setColor(Color.lightGray);
+        g.fillRoundRect(x, y, 20, 5, 10, 10);
     }
 }
 

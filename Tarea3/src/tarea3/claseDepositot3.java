@@ -12,27 +12,21 @@ class Deposito{
       vueltoDeposito = 0;
     }
     public void paint(Graphics g, int x, int y, int n){
+        if(D.get(n)!= null){
         D.get(n).paint(g, x, y); 
+        }
     }
     public void addBebida(Bebida a){
         D.add(a);
-    }
-    
-    public Bebida getBebida(Moneda m, int precio) throws customException{
-        if(D.isEmpty()){
-            vueltoDeposito = m.getValor();
-            throw new customException("NoHayBebidaException");
-        }
-        if(m.getValor() < precio){
-            vueltoDeposito = m.getValor();
-            throw new customException("PagoInsuficienteException");
-        }else{
-            vueltoDeposito = m.getValor() - precio;
+    }  
+    public Bebida getBebidas() throws customException{
             return D.remove(0);
-        }
     }
     public int darVuelto(){
         return vueltoDeposito;
+    }
+    public ArrayList getArrayBebidas(){
+        return D;
     }
 }
 

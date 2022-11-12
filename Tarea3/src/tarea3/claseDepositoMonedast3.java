@@ -20,4 +20,7 @@ class DepositoMonedas {
     public Moneda getMoneda(int n){
         return M.get(n);
     }
+    public void paint(Graphics g, int x, int y, int n){
+        M.get(n).paint(g, x, y);
+    }
 }

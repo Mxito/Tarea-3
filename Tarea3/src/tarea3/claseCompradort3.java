@@ -11,11 +11,12 @@ class Comprador{
     private int vueltoPendiente;
     private int saldo;
     private String saldoString;
-    public Comprador() throws customException{
+    private Expendedor expCom;
+    public Comprador(Expendedor exp) throws customException{
        Cartera = new DepositoMonedas();
        saldoString = "";
        saldo = 0;
-       
+       expCom = exp;
     }
     public String beber(){
         Bebida aux = bebida;
@@ -34,14 +35,20 @@ class Comprador{
         for(int i=0; i< Cartera.getDMonedas().size(); i++){
             saldo += Cartera.getMoneda(i).getValor();
         }
-        saldoString = saldo+"";
-        
+        saldoString = saldo+"";   
+    }
+    public void quitarSaldo(){
+        expCom.pagoCompra(Cartera);
+        while(!Cartera.getDMonedas().isEmpty()){
+            Cartera.removeMoneda();
+        }
+        saldo = 0;
     }
     
     public void agregarSaldo(Moneda m){
         Cartera.addMoneda(m);
     }
-    
+
     public void paint(Graphics g){
        this.saldo();
        g.setColor(Color.black);
