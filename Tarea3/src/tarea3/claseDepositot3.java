@@ -23,5 +23,8 @@ class Deposito{
     public ArrayList getArrayBebidas(){
         return D;
     }
+    public Bebida getBebida(int n){
+        return D.get(n);
+    }
 }
 

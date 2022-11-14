@@ -32,8 +32,8 @@ class Expendedor {
         DBebidas.add(new Deposito());
         for(int i = 0; i < numBebidas; i++){
             DBebidas.get(0).addBebida(new Fanta(1000+i));
-            DBebidas.get(2).addBebida(new Sprite(2000+i));
-            DBebidas.get(1).addBebida(new CocaCola(3000+i));
+            DBebidas.get(2).addBebida(new Sprite(3000+i));
+            DBebidas.get(1).addBebida(new CocaCola(2000+i));
         }
     }
     public void pagoCompra(DepositoMonedas DepMonedas){
@@ -58,23 +58,8 @@ class Expendedor {
             if(DBebidas.get(0).getArrayBebidas().isEmpty()){
                 return null;
             }
-            dineroExpendedor = 0;
-            while(dineroExpendedor < precio) {
-                dineroExpendedor += DMonedas.removeMoneda().getValor();
-            }
-            vueltoTotal = dineroExpendedor;
-            while(DMonedas.getDMonedas().isEmpty() == false){
-                vueltoTotal += DMonedas.removeMoneda().getValor();    
-            }
-            vueltoTotal -= precio;
-            while(vueltoTotal != 0){
-                DVuelto.add(new Moneda100());
-                vueltoTotal -= 100;
-            }
-            return soda = DBebidas.get(0).getBebidas();
-        }
-        if(numero == 2){
-            if(DBebidas.get(1).getArrayBebidas().isEmpty()){
+            if(soda != null){
+                System.out.println("Primero debes retirar la bebida del recibidor antes de comprar otra.");
                 return null;
             }
             dineroExpendedor = 0;
@@ -90,6 +75,31 @@ class Expendedor {
                 DVuelto.add(new Moneda100());
                 vueltoTotal -= 100;
             }
+            System.out.println("Has comprado una "+DBebidas.get(0).getBebida(0).tipoBebida()+".");
+            return soda = DBebidas.get(0).getBebidas();
+        }
+        if(numero == 2){
+            if(DBebidas.get(1).getArrayBebidas().isEmpty()){
+                return null;
+            }
+            if(soda != null){
+                System.out.println("Primero debes retirar la bebida del recibidor antes de comprar otra.");
+                return null;
+            }
+            dineroExpendedor = 0;
+            while(dineroExpendedor < precio) {
+                dineroExpendedor += DMonedas.removeMoneda().getValor();
+            }
+            vueltoTotal = dineroExpendedor;
+            while(DMonedas.getDMonedas().isEmpty() == false){
+                vueltoTotal += DMonedas.removeMoneda().getValor();    
+            }
+            vueltoTotal -= precio;
+            while(vueltoTotal != 0){
+                DVuelto.add(new Moneda100());
+                vueltoTotal -= 100;
+            }
+            System.out.println("Has comprado una "+DBebidas.get(1).getBebida(0).tipoBebida()+".");
             return soda = DBebidas.get(1).getBebidas();
         }
         if(numero == 3){
@@ -97,7 +107,10 @@ class Expendedor {
                 return null;
             }
             dineroExpendedor = 0;
-          
+            if(soda != null){
+                System.out.println("Primero debes retirar la bebida del recibidor antes de comprar otra.");
+                return null;
+            }
             while(dineroExpendedor < precio) {
                 dineroExpendedor += DMonedas.removeMoneda().getValor();
             }
@@ -110,6 +123,7 @@ class Expendedor {
                 DVuelto.add(new Moneda100());
                 vueltoTotal -= 100;
             }
+            System.out.println("Has comprado una "+DBebidas.get(2).getBebida(0).tipoBebida()+".");
             return soda = DBebidas.get(2).getBebidas();
         }
         throw new customException("NoHayBebidaException");
@@ -128,12 +142,12 @@ class Expendedor {
     public void depositoVacio(){
         if(DBebidas.get(0).getArrayBebidas().isEmpty()){
         for (int i = 0; i < Cantidad; i++) {
-           DBebidas.get(0).addBebida(new CocaCola(1000+i)); 
+           DBebidas.get(0).addBebida(new Fanta(1000+i)); 
             }
         }
         if(DBebidas.get(1).getArrayBebidas().isEmpty()){
         for (int i = 0; i < Cantidad; i++) {
-           DBebidas.get(1).addBebida(new Fanta(2000+i)); 
+           DBebidas.get(1).addBebida(new CocaCola(2000+i)); 
             }
         }
         if(DBebidas.get(2).getArrayBebidas().isEmpty()){
@@ -169,9 +183,9 @@ class Expendedor {
         g.fillRect(479, 273+68, 40, 25); 
         g.fillRect(479, 273+68+68, 40, 25); 
         g.setColor(Color.WHITE);
-        g.drawRect(469, 273, 50, 25); 
-        g.drawRect(469, 273+68, 50, 25); 
-        g.drawRect(469, 273+68+68, 50, 25); 
+        g.drawRect(479, 273, 40, 25); 
+        g.drawRect(479, 273+68, 40, 25); 
+        g.drawRect(479, 273+68+68, 40, 25); 
         g.drawString(DBebidas.get(0).getArrayBebidas().size()+"", 487, 290);
         g.drawString(DBebidas.get(2).getArrayBebidas().size()+"", 487, 290+68+68);
         g.drawString(DBebidas.get(1).getArrayBebidas().size()+"", 487, 290+68);

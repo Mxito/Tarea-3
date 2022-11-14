@@ -29,7 +29,7 @@ public class PanelPrincipal extends JPanel {
     public PanelPrincipal() throws customException{
         this.setBackground(Color.darkGray);
         this.setLayout(null);
-        exp = new Expendedor(3, 100);
+        exp = new Expendedor(3, 1500);
         Botones();
         com = new Comprador(exp);
         clickSaldo();

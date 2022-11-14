@@ -41,20 +41,22 @@ class Comprador{
         while(!Cartera.getDMonedas().isEmpty()){
             Cartera.removeMoneda();
         }
+        System.out.println("Has anyadido "+saldo+" pesos al Expendedor.");
         saldo = 0;
     } 
     public void agregarSaldo(Moneda m){
         if(m != null){
             Cartera.addMoneda(m);
+            System.out.println("Se ha anyadido una moneda de "+m.getValor()+" pesos a tu cartera.");
         }
     }
     public void paint(Graphics g){
        this.saldo();
        g.setColor(Color.black);
-       g.fillRoundRect(60, 100, 130, 20, 30, 30);
+       g.fillRoundRect(50, 100, 130, 20, 30, 30);
        g.setColor(Color.white);
        Font font = new Font("Space Invaders",Font.BOLD,12);
        g.setFont(font);
-       g.drawString("Saldo : $"+ saldoString, 66, 114);   
+       g.drawString("Saldo : $"+ saldoString, 56, 114);   
     }
 }
