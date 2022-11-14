@@ -12,8 +12,8 @@ abstract class Bebida{
    public Bebida (int numSerie){
        serie = numSerie;
    }
-    public int getSerie() {
-        return serie;
+    public String getSerie() {
+        return serie+"";
     }
     
 }
@@ -58,6 +58,8 @@ class Fanta extends Bebida{
     @Override
      public void paint(Graphics g, int x, int y) {
         g.drawImage(phanta, x, y, 25, 55, null);
+        g.fill3DRect(x, y+25, 25, 10, true);
+        g.drawString(this.getSerie(), x, y);
     }
     @Override
     public String tipoBebida(){

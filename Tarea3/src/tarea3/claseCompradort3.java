@@ -12,7 +12,7 @@ class Comprador{
     private int saldo;
     private String saldoString;
     private Expendedor expCom;
-    public Comprador(Expendedor exp) throws customException{
+    public Comprador(Expendedor exp){
        Cartera = new DepositoMonedas();
        saldoString = "";
        saldo = 0;

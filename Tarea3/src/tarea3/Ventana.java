@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 
 public class Ventana extends JFrame{
     public PanelPrincipal panel;
-    public Ventana() throws customException{
+    public Ventana(){
         this.setSize(800, 800);
         setTitle("Maquina expendedora de bebidas");
         this.setResizable(false);

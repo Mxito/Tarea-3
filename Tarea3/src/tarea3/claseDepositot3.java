@@ -17,7 +17,7 @@ class Deposito{
     public void addBebida(Bebida a){
         D.add(a);
     }  
-    public Bebida getBebidas() throws customException{
+    public Bebida getBebidas(){
         return D.remove(0);
     }
     public ArrayList getArrayBebidas(){

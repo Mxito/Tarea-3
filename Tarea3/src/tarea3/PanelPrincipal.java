@@ -26,7 +26,7 @@ public class PanelPrincipal extends JPanel {
     private JButton sacarBebida;
     private JButton sacarVuelto;
     private JLabel rellenarBebidas;
-    public PanelPrincipal() throws customException{
+    public PanelPrincipal(){
         this.setBackground(Color.darkGray);
         this.setLayout(null);
         exp = new Expendedor(3, 1500);
@@ -137,33 +137,21 @@ public class PanelPrincipal extends JPanel {
        MouseAdapter ma1 = new MouseAdapter() {
           @Override
            public void mouseClicked(MouseEvent e) {
-              try {
-                  exp.comprarBebida(1);
-              } catch (customException ex) {
-                  Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-              }
+                exp.comprarBebida(1);
                 repaint();
             }
        };fantaBoton.addMouseListener(ma1);
        MouseAdapter ma2 = new MouseAdapter() {
           @Override
            public void mouseClicked(MouseEvent e) {
-              try {
-                  exp.comprarBebida(2);
-              } catch (customException ex) {
-                  Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-              }
+                exp.comprarBebida(2);
                 repaint();
             }
        };cocaBoton.addMouseListener(ma2);
        MouseAdapter ma3 = new MouseAdapter() {
           @Override
            public void mouseClicked(MouseEvent e) {
-              try {
-                  exp.comprarBebida(3);
-              } catch (customException ex) {
-                  Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-              }
+                exp.comprarBebida(3);
                 repaint();
             }
        };spriteBoton.addMouseListener(ma3);
