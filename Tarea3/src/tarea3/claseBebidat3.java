@@ -1,5 +1,6 @@
 package tarea3;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
@@ -14,10 +15,8 @@ abstract class Bebida{
    }
     public String getSerie() {
         return serie+"";
-    }
-    
+    }   
 }
-
 class CocaCola extends Bebida{
     private Image coca;
     public CocaCola(int numSerie){
@@ -27,6 +26,8 @@ class CocaCola extends Bebida{
     @Override
     public void paint(Graphics g, int x, int y) {
         g.drawImage(coca, x, y, 25, 55, null);
+        g.setColor(Color.red);
+        g.drawString(this.getSerie(), x, y);
     }
     @Override
     public String tipoBebida(){
@@ -43,6 +44,8 @@ class Sprite extends Bebida{
     @Override
     public void paint(Graphics g, int x, int y) {
         g.drawImage(esprait, x, y, 25, 55, null);
+        g.setColor(Color.green);
+        g.drawString(this.getSerie(), x, y);
     }
     @Override
     public String tipoBebida(){
@@ -59,6 +62,7 @@ class Fanta extends Bebida{
      public void paint(Graphics g, int x, int y) {
         g.drawImage(phanta, x, y, 25, 55, null);
         g.fill3DRect(x, y+25, 25, 10, true);
+        g.setColor(Color.orange);
         g.drawString(this.getSerie(), x, y);
     }
     @Override
