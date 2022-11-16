@@ -11,7 +11,7 @@ class Deposito{
     }
     public void paint(Graphics g, int x, int y, int n){
         if(D.get(n)!= null){
-        D.get(n).paint(g, x, y); 
+        D.get(n).paint(g, x, y, 25, 55); 
         }
     }
     public void addBebida(Bebida a){

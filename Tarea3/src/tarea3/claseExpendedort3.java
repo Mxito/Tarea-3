@@ -23,7 +23,7 @@ class Expendedor {
         price = String.valueOf(precio);
         Cantidad = numBebidas;
         vueltoTotal = 0;
-        Exp = new ImageIcon("Expendedor.png").getImage();
+        Exp = new ImageIcon("expendedor.png").getImage();
         DVuelto = new ArrayList<>();
         DMonedas = new DepositoMonedas();
         DBebidas = new ArrayList<>(3);
@@ -31,9 +31,9 @@ class Expendedor {
         DBebidas.add(new Deposito());
         DBebidas.add(new Deposito());
         for(int i = 0; i < numBebidas; i++){
-            DBebidas.get(0).addBebida(new Fanta(1000+i));
-            DBebidas.get(2).addBebida(new Sprite(3000+i));
-            DBebidas.get(1).addBebida(new CocaCola(2000+i));
+            DBebidas.get(0).addBebida(new Fanta(100+i));
+            DBebidas.get(2).addBebida(new Sprite(300+i));
+            DBebidas.get(1).addBebida(new CocaCola(200+i));
         }
     }
     public void pagoCompra(DepositoMonedas DepMonedas){
@@ -143,17 +143,17 @@ class Expendedor {
     public void depositoVacio(){
         if(DBebidas.get(0).getArrayBebidas().isEmpty()){
         for (int i = 0; i < Cantidad; i++) {
-           DBebidas.get(0).addBebida(new Fanta(1000+i)); 
+           DBebidas.get(0).addBebida(new Fanta(100+i)); 
             }
         }
         if(DBebidas.get(1).getArrayBebidas().isEmpty()){
         for (int i = 0; i < Cantidad; i++) {
-           DBebidas.get(1).addBebida(new CocaCola(2000+i)); 
+           DBebidas.get(1).addBebida(new CocaCola(200+i)); 
             }
         }
         if(DBebidas.get(2).getArrayBebidas().isEmpty()){
         for (int i = 0; i < Cantidad; i++) {
-           DBebidas.get(2).addBebida(new Sprite(3000+i)); 
+           DBebidas.get(2).addBebida(new Sprite(300+i)); 
             }
         }
     }
@@ -179,6 +179,8 @@ class Expendedor {
                 DBebidas.get(2).paint(g, 240+30*(i-1), 420,i-1);   
             }
         }
+        font = new Font("Space Invaders",Font.BOLD,12);
+        g.setFont(font);
         g.setColor(Color.BLACK);
         g.fillRect(479, 273, 40, 25); 
         g.fillRect(479, 273+68, 40, 25); 
@@ -205,7 +207,7 @@ class Expendedor {
             DVuelto.get(i).paint2(g, 280, 500);
         }
         if(soda != null){
-            soda.paint(g, 230, 500);
+            soda.paint(g, 230, 500, 25, 55);
         }
     }
 }
