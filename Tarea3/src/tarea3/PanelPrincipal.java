@@ -26,14 +26,16 @@ public class PanelPrincipal extends JPanel {
     private JButton sacarBebida;
     private JButton sacarVuelto;
     private JLabel rellenarBebidas;
+    private JButton tomarBebida;
     public PanelPrincipal(){
         this.setBackground(Color.darkGray);
         this.setLayout(null);
-        exp = new Expendedor(9, 1500);
+        exp = new Expendedor(3, 100);
         com = new Comprador(exp);
         Botones();
         clickSaldo();
         elegirBebida();
+   
     }
     public void Botones(){
         m500 = new JButton();
@@ -93,12 +95,19 @@ public class PanelPrincipal extends JPanel {
         sacarVuelto.setContentAreaFilled(false);
         sacarVuelto.setBorderPainted(false);
         
+        tomarBebida = new JButton();
+        tomarBebida.setBounds(50, 250, 75, 165);
+        this.add(tomarBebida);
+        tomarBebida.setOpaque(false);
+        tomarBebida.setContentAreaFilled(false);
+        tomarBebida.setBorderPainted(false);
+        
+        
         rellenarBebidas = new JLabel();
         rellenarBebidas.setBounds(200, 100, 450, 550);
         this.add(rellenarBebidas);
     
     }
-      
    public void clickSaldo(){
        MouseAdapter ma1 = new MouseAdapter() {
            @Override
@@ -132,7 +141,6 @@ public class PanelPrincipal extends JPanel {
            }
        };receptorMonedas.addMouseListener(ma4);
    }
-
    public void elegirBebida(){
        MouseAdapter ma1 = new MouseAdapter() {
           @Override
@@ -174,10 +182,17 @@ public class PanelPrincipal extends JPanel {
           @Override
            public void mouseClicked(MouseEvent e){
                exp.depositoVacio();
-               System.out.println("click");
                repaint();
             }
        };rellenarBebidas.addMouseListener(ma6);
+       
+        MouseAdapter ma7 = new MouseAdapter() {
+          @Override
+           public void mouseClicked(MouseEvent e){
+               com.beber();
+               repaint();
+            }
+       };tomarBebida.addMouseListener(ma7);
    }  
     @Override
     public void paint(Graphics g){

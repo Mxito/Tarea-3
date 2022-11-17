@@ -26,10 +26,12 @@ class Comprador{
     public void sacarBebida(Bebida soda){
         bebida = soda;
     }
-    public String beber(){
-        Bebida aux = bebida;
-        bebida = null;
-        return "Bebiendo: "+aux.tipoBebida()+"\nNumero de Serie: "+aux.getSerie()+"\n";
+    public void beber(){
+        if(bebida != null){
+            Bebida aux = bebida;
+            bebida = null;
+            System.out.println("Bebiendo: "+aux.tipoBebida()+"\nNumero de Serie: "+aux.getSerie()+"\n");
+        }
     }
     public void cuantoVuelto(){
         int cont = Cartera.getDMonedas().size();

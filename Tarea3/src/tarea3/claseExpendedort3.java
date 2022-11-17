@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 
 class Expendedor {
     private Image Exp;
+    private Image Fanta;
+    private Image Coca;
+    private Image Sprite;
     private ArrayList<Deposito> DBebidas;
     private DepositoMonedas DMonedas;
     private ArrayList<Moneda100> DVuelto;
@@ -24,6 +27,9 @@ class Expendedor {
         Cantidad = numBebidas;
         vueltoTotal = 0;
         Exp = new ImageIcon("expendedor.png").getImage();
+        Fanta = new ImageIcon("fanta-etiqueta.png").getImage();
+        Sprite = new ImageIcon("sprite-etiqueta.png").getImage();
+        Coca = new ImageIcon("coca-etiqueta.jpg").getImage();
         DVuelto = new ArrayList<>();
         DMonedas = new DepositoMonedas();
         DBebidas = new ArrayList<>(3);
@@ -41,6 +47,7 @@ class Expendedor {
             DMonedas.addMoneda(DepMonedas.getMoneda(i));
         }
     }
+    
     public Bebida comprarBebida(int numero){
         int dineroExpendedor = 0;
         if(DMonedas.getDMonedas().isEmpty()){
@@ -111,7 +118,6 @@ class Expendedor {
             }
             while(dineroExpendedor < precio) {
                 dineroExpendedor += DMonedas.removeMoneda().getValor();
-                System.out.println("A");
             }
             vueltoTotal = dineroExpendedor;
             while(DMonedas.getDMonedas().isEmpty() == false){
@@ -129,6 +135,7 @@ class Expendedor {
         }
         return null;
     }
+    
     public Bebida getaBebida(){
         Bebida refresco = soda;
         soda = null;
@@ -158,7 +165,10 @@ class Expendedor {
         }
     }
     public void paint(Graphics g){
-        g.drawImage(Exp,200, 100, 450, 550, null);        
+        g.drawImage(Exp,200, 100, 450, 550, null);       
+        g.drawImage(Fanta ,547, 360, 80, 30, null);    
+        g.drawImage(Coca,547, 395, 80, 30, null);    
+        g.drawImage(Sprite,547, 430, 80, 30, null);    
         g.fillRoundRect(547, 283+50, 80, 20, 20, 20);
         Font font = new Font("Space Invaders",Font.BOLD,12);
         g.setFont(font);
